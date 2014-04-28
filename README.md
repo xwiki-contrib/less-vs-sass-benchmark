@@ -30,17 +30,17 @@ Using Java HotSpot(TM) 64-Bit Server VM 1.7 on Ubuntu 13.10, with intel core i7 
 **Mean**:
 
 *   LESS: 2,00986 seconds
-*   SASS: 8,2578 seconds
+*   SASS: 0,82578 seconds
 
 **Median**:
 
 *   LESS: 1,966 seconds
-*   SASS: 7,145 seconds
+*   SASS: 0,7145 seconds
 
 **Standard Deviation**:
 
 *   LESS: 0,269 seconds
-*   SASS: 5,806 seconds
+*   SASS: 0,581 seconds
 
 ![Diagram](https://raw.githubusercontent.com/xwiki-contrib/less-vs-sass-benchmark/master/benchmark.png "Diagram")
 
