@@ -22,8 +22,27 @@ Results
 -----
 Using Java HotSpot(TM) 64-Bit Server VM 1.7 on Ubuntu 13.10, with intel core i7 2.40Ghz and 8 gb of RAM.
 
-* LESS: 192seconds
-* SASS: 79seconds
+**For the whole**:
+
+*   LESS: 192 seconds
+*   SASS: 79 seconds
+
+**Mean**:
+
+*   LESS: 2,00986 seconds
+*   SASS: 8,2578 seconds
+
+**Median**:
+
+*   LESS: 1,966 seconds
+*   SASS: 7,145 seconds
+
+**Standard Deviation**:
+
+*   LESS: 0,269 seconds
+*   SASS: 5,806 seconds
+
+![Diagram](https://raw.githubusercontent.com/xwiki-contrib/less-vs-sass-benchmark/master/benchmark.png "Diagram")
 
 Notes
 -----

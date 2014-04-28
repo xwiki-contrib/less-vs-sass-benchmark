@@ -62,7 +62,10 @@ public class Benchmark
         String bootstrapSrc = getClass().getResource("/bootstrap-3.1.1/less/bootstrap.less").getFile();
         long before = System.currentTimeMillis();
         for (int i=100; i>0; --i) {
+            long beforeOnce = System.currentTimeMillis();
             lessCompiler.compile(bootstrapSrc);
+            long afterOnce = System.currentTimeMillis();
+            System.out.println(afterOnce-beforeOnce);
         }
         long after = System.currentTimeMillis();
 
@@ -76,7 +79,10 @@ public class Benchmark
         String bootstrapSrc = getClass().getResource("/bootstrap-3.1.1/sass/bootstrap.scss").getFile();
         long before = System.currentTimeMillis();
         for (int i=100; i>0; --i) {
+            long beforeOnce = System.currentTimeMillis();
             sassCompiler.compile(bootstrapSrc);
+            long afterOnce = System.currentTimeMillis();
+            System.out.println(afterOnce-beforeOnce);
         }
         long after = System.currentTimeMillis();
 
