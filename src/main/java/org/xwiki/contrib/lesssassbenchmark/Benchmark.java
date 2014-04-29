@@ -47,9 +47,9 @@ public class Benchmark
 
             // RESULTS
             System.out.println("Results:");
-            System.out.println("LESS: "+ lessTime + "seconds");
-            System.out.println("SASS: "+ sassTime + "seconds");
-            System.out.println("Asual LESS: "+ asualLessTime + "seconds");
+            System.out.println("LESS: "+ lessTime + " seconds");
+            System.out.println("SASS: "+ sassTime + " seconds");
+            System.out.println("Asual LESS: "+ asualLessTime + " seconds");
 
         } catch (Exception e) {
             e.printStackTrace();

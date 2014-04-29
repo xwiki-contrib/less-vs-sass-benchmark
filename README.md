@@ -8,7 +8,7 @@ LESS
 I have found 2 versions to be used with java:
 
 * [The official LESS Compiler for Java forked by Sandro Böhme](https://github.com/sandroboehme/lesscss-java). It uses [Rhino](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino) and [EnvJs](http://www.envjs.com/) to runs the [LESS](http://lesscss.org/) compiler, which is written in Javascript.
-* [LESS for Java, by Asual](http://www.asual.com/lesscss/), based on Rhino too.
+* [LESS for Java, by Asual](http://www.asual.com/lesscss/), based on Rhino only, tu run the LESS compiler.
 
 SASS
 -----
@@ -18,9 +18,9 @@ Protocol
 -----
 I have both the sources of [Bootstrap](http://getbootstrap.com/) 3.1.1 for Less and Sass. I build it 100 times with each preprocessor.
 
-* Official LESS version: 1.7.0 (latest)
-* Asual LESS version: 1.7.0 (latest)
-* SASS version: 3.2.1 wich is the last gems available in maven (last version: 3.3.6).
+* Official LESS version: I manually set the LESS JS file to 1.7.0-rhino (latest)
+* Asual LESS version: I manually set the LESS JS file to 1.7.0-rhino (latest)
+* SASS version: [3.3.6](https://github.com/xwiki-contrib/sass-gems) (latest).
 
 Results
 -----
@@ -28,27 +28,27 @@ Using Java HotSpot(TM) 64-Bit Server VM 1.7 on Ubuntu 13.10, with intel core i7 
 
 **For the whole**:
 
-*   Official LESS: 139 seconds
-*   Asual LESS: 427 seconds
-*   SASS: 77 seconds
+*   Official LESS: 142 seconds
+*   Asual LESS: 433 seconds
+*   SASS: 86 seconds
 
 **Mean**:
 
-*   Official LESS: 1,39101 seconds
-*   Asual LESS: 4,27867 seconds
-*   SASS: 0,77975 seconds
+*   Official LESS: 1,425 seconds
+*   Asual LESS: 4,337 seconds
+*   SASS: 0,860 seconds
 
 **Median**:
 
-*   Official LESS: 1,34 seconds
-*   Asual LESS: 4,236 seconds
-*   SASS: 0,663 seconds
+*   Official LESS: 1,372 seconds
+*   Asual LESS: 4,283 seconds
+*   SASS: 0,732 seconds
 
 **Standard Deviation**:
 
-*   Official LESS: 0,271 seconds
-*   Asual LESS: 0,296 seconds
-*   SASS: 0,548 seconds
+*   Official LESS: 0,272 seconds
+*   Asual LESS: 0,403 seconds
+*   SASS: 0,667 seconds
 
 ![Diagram](https://raw.githubusercontent.com/xwiki-contrib/less-vs-sass-benchmark/master/benchmark.png "Diagram")
 
