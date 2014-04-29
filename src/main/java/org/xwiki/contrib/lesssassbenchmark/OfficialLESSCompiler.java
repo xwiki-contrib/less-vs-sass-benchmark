@@ -19,27 +19,27 @@
  */
 package org.xwiki.contrib.lesssassbenchmark;
 
-import java.io.IOException;
+import java.io.File;
 
-import org.jruby.embed.ScriptingContainer;
+import de.sandroboehme.lesscss.LessCompiler;
 
-public class SASSCompiler implements Compiler
+public class OfficialLESSCompiler implements Compiler
 {
+    private LessCompiler lessCompiler;
+
     @Override
     public void init()
     {
-        // When creating a ScriptingContainer for the first time, it loads JRuby
-        new ScriptingContainer().runScriptlet("puts 'JRuby loaded'");
+        // Instantiate the LESS compiler
+        lessCompiler = new LessCompiler();
+        lessCompiler.setLessJs(getClass().getResource("/less-rhino-1.7.0.js"));
+        lessCompiler.setLesscJs(getClass().getResource("/lessc-rhino-1.7.0.js"));
+        lessCompiler.init();
     }
 
     @Override
-    public String compile(String filename) throws IOException
+    public String compile(String filename) throws Exception
     {
-        StringBuilder script = new StringBuilder();
-        script.append("require 'sass'").append(System.lineSeparator());
-        script.append(String.format("engine = Sass::Engine.for_file('%s', {})", filename));
-        script.append(System.lineSeparator());
-        script.append("engine.render()");
-        return new ScriptingContainer().runScriptlet(script.toString()).toString();
+        return lessCompiler.compile(new File(filename));
     }
 }

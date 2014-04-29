@@ -5,7 +5,10 @@ In XWiki, we want to build [Bootstrap](http://getbootstrap.com/) with a CSS prep
 
 LESS
 ------
-I am using [lesscss-java forked by sandroboehme](https://github.com/sandroboehme/lesscss-java). It uses [Rhino](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino) and [EnvJs](http://www.envjs.com/) to runs the [LESS](http://lesscss.org/) compiler, which is written in Javascript.
+I have found 2 versions to be used with java:
+
+* [The official LESS Compiler for Java forked by Sandro Böhme](https://github.com/sandroboehme/lesscss-java). It uses [Rhino](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino) and [EnvJs](http://www.envjs.com/) to runs the [LESS](http://lesscss.org/) compiler, which is written in Javascript.
+* [LESS for Java, by Asual](http://www.asual.com/lesscss/), based on Rhino too.
 
 SASS
 -----
@@ -15,8 +18,9 @@ Protocol
 -----
 I have both the sources of [Bootstrap](http://getbootstrap.com/) 3.1.1 for Less and Sass. I build it 100 times with each preprocessor.
 
-* LESS version: 1.6.1 (last version: 1.7).
-* SASS version: 3.2.1 (the last gems available in maven, last version: 3.3.6).
+* Official LESS version: 1.7.0 (latest)
+* Asual LESS version: 1.7.0 (latest)
+* SASS version: 3.2.1 wich is the last gems available in maven (last version: 3.3.6).
 
 Results
 -----
@@ -24,23 +28,27 @@ Using Java HotSpot(TM) 64-Bit Server VM 1.7 on Ubuntu 13.10, with intel core i7 
 
 **For the whole**:
 
-*   LESS: 192 seconds
-*   SASS: 79 seconds
+*   Official LESS: 139 seconds
+*   Asual LESS: 427 seconds
+*   SASS: 77 seconds
 
 **Mean**:
 
-*   LESS: 2,00986 seconds
-*   SASS: 0,82578 seconds
+*   Official LESS: 1,39101 seconds
+*   Asual LESS: 4,27867 seconds
+*   SASS: 0,77975 seconds
 
 **Median**:
 
-*   LESS: 1,966 seconds
-*   SASS: 0,7145 seconds
+*   Official LESS: 1,34 seconds
+*   Asual LESS: 4,236 seconds
+*   SASS: 0,663 seconds
 
 **Standard Deviation**:
 
-*   LESS: 0,269 seconds
-*   SASS: 0,581 seconds
+*   Official LESS: 0,271 seconds
+*   Asual LESS: 0,296 seconds
+*   SASS: 0,548 seconds
 
 ![Diagram](https://raw.githubusercontent.com/xwiki-contrib/less-vs-sass-benchmark/master/benchmark.png "Diagram")
 
@@ -50,7 +58,7 @@ I am not a LESS nor SASS expert. So this benchmark may be improved by your sugge
 
 Alternatives
 -----
-* There is a java version of SASS developed by Vaadin: [Vaadin](https://vaadin.com/blog/-/blogs/state-of-sass-support-in-vaadin-7-today)
+* There is a java version of SASS developed by Vaadin: [Vaadin](https://vaadin.com/blog/-/blogs/state-of-sass-support-in-vaadin-7-today). The last time I tried, it was not able to compile Bootstrap.
 * Same for LESS, but old: [LessCss4J](https://github.com/localmatters/lesscss4j)
 
 Thanks

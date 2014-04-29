@@ -37,8 +37,12 @@
       <version>4.8.2</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>com.asual.lesscss</groupId>
+      <artifactId>lesscss-engine</artifactId>
+      <version>1.5.0</version>
+    </dependency>
   </dependencies>
-
   <build>
     <plugins>
       <plugin>

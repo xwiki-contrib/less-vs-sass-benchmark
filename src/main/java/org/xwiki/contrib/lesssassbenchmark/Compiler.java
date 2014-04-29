@@ -19,27 +19,9 @@
  */
 package org.xwiki.contrib.lesssassbenchmark;
 
-import java.io.IOException;
-
-import org.jruby.embed.ScriptingContainer;
-
-public class SASSCompiler implements Compiler
+public interface Compiler
 {
-    @Override
-    public void init()
-    {
-        // When creating a ScriptingContainer for the first time, it loads JRuby
-        new ScriptingContainer().runScriptlet("puts 'JRuby loaded'");
-    }
+    void init();
 
-    @Override
-    public String compile(String filename) throws IOException
-    {
-        StringBuilder script = new StringBuilder();
-        script.append("require 'sass'").append(System.lineSeparator());
-        script.append(String.format("engine = Sass::Engine.for_file('%s', {})", filename));
-        script.append(System.lineSeparator());
-        script.append("engine.render()");
-        return new ScriptingContainer().runScriptlet(script.toString()).toString();
-    }
+    String compile(String fileName) throws Exception;
 }

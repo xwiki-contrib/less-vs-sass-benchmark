@@ -19,10 +19,6 @@
  */
 package org.xwiki.contrib.lesssassbenchmark;
 
-import java.io.IOException;
-
-import de.sandroboehme.lesscss.LessException;
-
 public class Benchmark
 {
     public static void main(String[] args)
@@ -37,50 +33,37 @@ public class Benchmark
             System.out.println("LESS vs SASS in a java environment Benchmark");
             System.out.println("--------------------");
 
-            // LESS
+            // Official LESS
             System.out.println("Running Less... (100 iterations)");
-            long lessTime = runLess();
+            long lessTime = run(new OfficialLESSCompiler(), "/bootstrap-3.1.1/less/bootstrap.less");
 
             // SASS
             System.out.println("Running Sass... (100 iterations)");
-            long sassTime = runSass();
+            long sassTime = run(new SASSCompiler(), "/bootstrap-3.1.1/sass/bootstrap.scss");
+
+            // Asual LESS
+            System.out.println("Running Asual Less... (100 iterations)");
+            long asualLessTime = run(new AsualLESSCompiler(), "/bootstrap-3.1.1/less/bootstrap.less");
 
             // RESULTS
             System.out.println("Results:");
             System.out.println("LESS: "+ lessTime + "seconds");
             System.out.println("SASS: "+ sassTime + "seconds");
+            System.out.println("Asual LESS: "+ asualLessTime + "seconds");
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private long runLess() throws IOException, LessException
+    private long run(Compiler compiler, String sourceName) throws Exception
     {
-        LESSCompiler lessCompiler = new LESSCompiler();
-        lessCompiler.init();
-        String bootstrapSrc = getClass().getResource("/bootstrap-3.1.1/less/bootstrap.less").getFile();
+        compiler.init();
+        String bootstrapSrc = getClass().getResource(sourceName).getFile();
         long before = System.currentTimeMillis();
         for (int i=100; i>0; --i) {
             long beforeOnce = System.currentTimeMillis();
-            lessCompiler.compile(bootstrapSrc);
-            long afterOnce = System.currentTimeMillis();
-            System.out.println(afterOnce-beforeOnce);
-        }
-        long after = System.currentTimeMillis();
-
-        return (after-before)/1000;
-    }
-
-    private long runSass() throws IOException, LessException
-    {
-        SASSCompiler sassCompiler = new SASSCompiler();
-        sassCompiler.init();
-        String bootstrapSrc = getClass().getResource("/bootstrap-3.1.1/sass/bootstrap.scss").getFile();
-        long before = System.currentTimeMillis();
-        for (int i=100; i>0; --i) {
-            long beforeOnce = System.currentTimeMillis();
-            sassCompiler.compile(bootstrapSrc);
+            compiler.compile(bootstrapSrc);
             long afterOnce = System.currentTimeMillis();
             System.out.println(afterOnce-beforeOnce);
         }

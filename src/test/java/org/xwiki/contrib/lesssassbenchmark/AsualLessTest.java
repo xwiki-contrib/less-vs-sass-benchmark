@@ -28,17 +28,17 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class LessTest
+public class AsualLessTest
 {
     /**
      * LESSCompiler
      */
-    private static LESSCompiler lessCompiler;
+    private static AsualLESSCompiler lessCompiler;
 
     @BeforeClass
     public static void init()
     {
-        lessCompiler = new LESSCompiler();
+        lessCompiler = new AsualLESSCompiler();
         lessCompiler.init();
     }
 
@@ -47,11 +47,12 @@ public class LessTest
     {
         String bootstrapSrc = getClass().getResource("/bootstrap-3.1.1/less/bootstrap.less").getFile();
         StringWriter expectedResult = new StringWriter();
-        IOUtils.copy(new FileInputStream(getClass().getResource("/bootstrap.less.css").getFile()), expectedResult);
+        IOUtils.copy(new FileInputStream(getClass().getResource("/bootstrap.asual.css").getFile()), expectedResult);
         String result = lessCompiler.compile(bootstrapSrc);
         assertEquals(expectedResult.toString(), result);
     }
 
+    /*
     @Test
     public void compile100() throws Exception
     {
@@ -59,5 +60,5 @@ public class LessTest
         for (int i=100; i>0; --i) {
             lessCompiler.compile(bootstrapSrc);
         }
-    }
+    }*/
 }

@@ -20,24 +20,25 @@
 package org.xwiki.contrib.lesssassbenchmark;
 
 import java.io.File;
-import java.io.IOException;
 
-import de.sandroboehme.lesscss.LessCompiler;
-import de.sandroboehme.lesscss.LessException;
+import com.asual.lesscss.LessEngine;
+import com.asual.lesscss.LessOptions;
 
-public class LESSCompiler
+public class AsualLESSCompiler implements Compiler
 {
-    private LessCompiler lessCompiler;
+    private LessEngine lessEngine;
 
+    @Override
     public void init()
     {
-        // Instantiate the LESS compiler
-        lessCompiler = new LessCompiler();
-        lessCompiler.init();
+        LessOptions lessOptions = new LessOptions();
+        lessOptions.setLess(getClass().getResource("/less-rhino-1.7.0.js"));
+        lessEngine = new LessEngine();
     }
 
-    public String compile(String filename) throws IOException, LessException
+    @Override
+    public String compile(String filename) throws Exception
     {
-        return lessCompiler.compile(new File(filename));
+        return lessEngine.compile(new File(filename));
     }
 }

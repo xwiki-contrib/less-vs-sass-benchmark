@@ -28,37 +28,36 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class SassTest
+public class OfficialLessTest
 {
     /**
-     * SASSCompiler
+     * LESSCompiler
      */
-    private static SASSCompiler sassCompiler;
+    private static OfficialLESSCompiler lessCompiler;
 
     @BeforeClass
     public static void init()
     {
-        sassCompiler = new SASSCompiler();
-        sassCompiler.init();
+        lessCompiler = new OfficialLESSCompiler();
+        lessCompiler.init();
     }
 
     @Test
     public void test() throws Exception
     {
-        String bootstrapSrc = getClass().getResource("/bootstrap-3.1.1/sass/bootstrap.scss").getFile();
+        String bootstrapSrc = getClass().getResource("/bootstrap-3.1.1/less/bootstrap.less").getFile();
         StringWriter expectedResult = new StringWriter();
-        IOUtils.copy(new FileInputStream(getClass().getResource("/bootstrap.sass.css").getFile()), expectedResult);
-        String result = sassCompiler.compile(bootstrapSrc);
+        IOUtils.copy(new FileInputStream(getClass().getResource("/bootstrap.less.css").getFile()), expectedResult);
+        String result = lessCompiler.compile(bootstrapSrc);
         assertEquals(expectedResult.toString(), result);
     }
-
-    /*
+/*
     @Test
     public void compile100() throws Exception
     {
-        String bootstrapSrc = getClass().getResource("/bootstrap-3.1.1/sass/bootstrap.scss").getFile();
+        String bootstrapSrc = getClass().getResource("/bootstrap-3.1.1/less/bootstrap.less").getFile();
         for (int i=100; i>0; --i) {
-            sassCompiler.compile(bootstrapSrc);
+            lessCompiler.compile(bootstrapSrc);
         }
     }*/
 }
