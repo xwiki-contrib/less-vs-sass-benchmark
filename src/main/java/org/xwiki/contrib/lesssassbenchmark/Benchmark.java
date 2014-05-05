@@ -39,7 +39,11 @@ public class Benchmark
 
             // SASS
             System.out.println("Running Sass... (100 iterations)");
-            long sassTime = run(new SASSCompiler(), "/bootstrap-3.1.1/sass/bootstrap.scss");
+            long sassTime = run(new SASSCompiler(true), "/bootstrap-3.1.1/sass/bootstrap.scss");
+
+            // SASS without Cache
+            System.out.println("Running Sass witout cache... (100 iterations)");
+            long sassWithoutCacheTime = run(new SASSCompiler(false), "/bootstrap-3.1.1/sass/bootstrap.scss");
 
             // Asual LESS
             System.out.println("Running Asual Less... (100 iterations)");
@@ -49,6 +53,7 @@ public class Benchmark
             System.out.println("Results:");
             System.out.println("LESS: "+ lessTime + " seconds");
             System.out.println("SASS: "+ sassTime + " seconds");
+            System.out.println("SASS without cache: "+ sassWithoutCacheTime + " seconds");
             System.out.println("Asual LESS: "+ asualLessTime + " seconds");
 
         } catch (Exception e) {

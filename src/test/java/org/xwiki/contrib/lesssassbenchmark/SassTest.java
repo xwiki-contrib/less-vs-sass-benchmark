@@ -38,7 +38,7 @@ public class SassTest
     @BeforeClass
     public static void init()
     {
-        sassCompiler = new SASSCompiler();
+        sassCompiler = new SASSCompiler(true);
         sassCompiler.init();
     }
 

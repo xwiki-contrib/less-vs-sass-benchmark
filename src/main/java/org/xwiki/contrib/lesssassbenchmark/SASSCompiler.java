@@ -25,6 +25,13 @@ import org.jruby.embed.ScriptingContainer;
 
 public class SASSCompiler implements Compiler
 {
+    private boolean useCache;
+
+    public SASSCompiler(boolean useCache)
+    {
+        this.useCache = useCache;
+    }
+
     @Override
     public void init()
     {
@@ -37,7 +44,7 @@ public class SASSCompiler implements Compiler
     {
         StringBuilder script = new StringBuilder();
         script.append("require 'sass'").append(System.lineSeparator());
-        script.append(String.format("engine = Sass::Engine.for_file('%s', {})", filename));
+        script.append(String.format("engine = Sass::Engine.for_file('%s', {cache: %b})", filename, useCache));
         script.append(System.lineSeparator());
         script.append("engine.render()");
         return new ScriptingContainer().runScriptlet(script.toString()).toString();

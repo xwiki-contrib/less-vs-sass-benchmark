@@ -14,6 +14,8 @@ SASS
 -----
 I am using [JRuby](http://jruby.org/) to runs the [SASS](http://sass-lang.com/) compiler, which is written in Ruby. I use the [official SASS port of bootstrap](https://github.com/twbs/bootstrap-sass).
 
+I am also testing with and without the "cache" option, that do not re-compile files imported via "@import" when they haven't changed. Since in XWiki, it may often compute new files. (it seems that LESS does not cache anything).
+
 Protocol
 -----
 I have both the sources of [Bootstrap](http://getbootstrap.com/) 3.1.1 for Less and Sass. I build it 100 times with each preprocessor.
@@ -31,24 +33,28 @@ Using Java HotSpot(TM) 64-Bit Server VM 1.7 on Ubuntu 13.10, with intel core i7 
 *   Official LESS: 142 seconds
 *   Asual LESS: 433 seconds
 *   SASS: 86 seconds
+*   SASS without Cache: 161 seconds
 
 **Mean**:
 
 *   Official LESS: 1,425 seconds
 *   Asual LESS: 4,337 seconds
 *   SASS: 0,860 seconds
+*   SASS without Cache: 1,617 seconds
 
 **Median**:
 
 *   Official LESS: 1,372 seconds
 *   Asual LESS: 4,283 seconds
 *   SASS: 0,732 seconds
+*   SASS without Cache: 1,4345 seconds
 
 **Standard Deviation**:
 
 *   Official LESS: 0,272 seconds
 *   Asual LESS: 0,403 seconds
 *   SASS: 0,667 seconds
+*   SASS without Cache: 0,885 seconds
 
 ![Diagram](https://raw.githubusercontent.com/xwiki-contrib/less-vs-sass-benchmark/master/benchmark.png "Diagram")
 
