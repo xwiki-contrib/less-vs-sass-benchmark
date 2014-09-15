@@ -5,10 +5,11 @@ In XWiki, we want to build [Bootstrap](http://getbootstrap.com/) with a CSS prep
 
 LESS
 ------
-I have found 2 versions to be used with java:
+I have found 3 versions to be used with java:
 
 * [The official LESS Compiler for Java forked by Sandro Böhme](https://github.com/sandroboehme/lesscss-java). It uses [Rhino](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino) and [EnvJs](http://www.envjs.com/) to runs the [LESS](http://lesscss.org/) compiler, which is written in Javascript.
 * [LESS for Java, by Asual](http://www.asual.com/lesscss/), based on Rhino only, tu run the LESS compiler.
+* [LESS4J](https://github.com/SomMeri/less4j). LESS rewritten in Java with ANTLR.
 
 SASS
 -----
@@ -23,6 +24,7 @@ I have both the sources of [Bootstrap](http://getbootstrap.com/) 3.1.1 for Less 
 * Official LESS version: I manually set the LESS JS file to 1.7.0-rhino (latest)
 * Asual LESS version: I manually set the LESS JS file to 1.7.0-rhino (latest)
 * SASS version: [3.3.6](https://github.com/xwiki-contrib/sass-gems) (latest).
+* LESS4J version: [1.8.2](https://github.com/SomMeri/less4j/releases/tag/less4j-1.8.2) (latest).
 
 Results
 -----
@@ -34,6 +36,7 @@ Using Java HotSpot(TM) 64-Bit Server VM 1.7 on Ubuntu 13.10, with intel core i7 
 *   Asual LESS: 433 seconds
 *   SASS: 86 seconds
 *   SASS without Cache: 161 seconds
+*   LESS4J: 66 seconds
 
 **Mean**:
 
@@ -41,6 +44,7 @@ Using Java HotSpot(TM) 64-Bit Server VM 1.7 on Ubuntu 13.10, with intel core i7 
 *   Asual LESS: 4,337 seconds
 *   SASS: 0,860 seconds
 *   SASS without Cache: 1,617 seconds
+*   LESS4J: 0,667 seconds
 
 **Median**:
 
@@ -48,6 +52,7 @@ Using Java HotSpot(TM) 64-Bit Server VM 1.7 on Ubuntu 13.10, with intel core i7 
 *   Asual LESS: 4,283 seconds
 *   SASS: 0,732 seconds
 *   SASS without Cache: 1,4345 seconds
+*   LESS4J: 0.5335 seconds
 
 **Standard Deviation**:
 
@@ -55,6 +60,7 @@ Using Java HotSpot(TM) 64-Bit Server VM 1.7 on Ubuntu 13.10, with intel core i7 
 *   Asual LESS: 0,403 seconds
 *   SASS: 0,667 seconds
 *   SASS without Cache: 0,885 seconds
+*   LESS4J: 0.403 seconds
 
 ![Diagram](https://raw.githubusercontent.com/xwiki-contrib/less-vs-sass-benchmark/master/benchmark.png "Diagram")
 

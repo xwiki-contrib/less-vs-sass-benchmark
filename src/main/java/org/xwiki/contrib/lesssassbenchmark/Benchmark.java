@@ -49,12 +49,17 @@ public class Benchmark
             System.out.println("Running Asual Less... (100 iterations)");
             long asualLessTime = run(new AsualLESSCompiler(), "/bootstrap-3.1.1/less/bootstrap.less");
 
+            // LESS4J
+            System.out.println("Running LESS4J Less... (100 iterations)");
+            long less4JLessTime = run(new Less4JCompiler(), "/bootstrap-3.1.1/less/bootstrap.less");
+
             // RESULTS
             System.out.println("Results:");
             System.out.println("LESS: "+ lessTime + " seconds");
             System.out.println("SASS: "+ sassTime + " seconds");
             System.out.println("SASS without cache: "+ sassWithoutCacheTime + " seconds");
             System.out.println("Asual LESS: "+ asualLessTime + " seconds");
+            System.out.println("LESS4J: "+ less4JLessTime + " seconds");
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -49,6 +49,11 @@
       <artifactId>lesscss-engine</artifactId>
       <version>1.5.0</version>
     </dependency>
+    <dependency>
+      <groupId>com.github.sommeri</groupId>
+      <artifactId>less4j</artifactId>
+      <version>1.8.2</version>
+    </dependency>
     <!-- Testing -->
     <dependency>
       <groupId>junit</groupId>
